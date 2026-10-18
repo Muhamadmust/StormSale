@@ -94,7 +94,7 @@ export function setMockMultiSigAccount(
   const defaultSigners: AccountSigner[] = config.signers || [
     { key: address, weight: masterWeight, type: "ed25519_public_key" },
     {
-      key: "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+      key: "GASTORMSALE7TESTNET7AFFILIATE7MERCHANT7ESCROW7XLM7777777", // gitleaks:allow
       weight: 1,
       type: "ed25519_public_key",
     },

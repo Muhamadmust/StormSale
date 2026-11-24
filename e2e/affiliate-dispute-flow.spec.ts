@@ -14,8 +14,8 @@ test.describe("E2E Journey: Affiliate Dispute Resolution & Mediation (#490)", ()
   }) => {
     // 1. Connect wallet and assume Affiliate role
     await connectWithDemoAccount(page);
-    await page.getByRole("heading", { name: "Affiliate", exact: true }).click();
-    await page.getByRole("button", { name: "Sign & Assume Role" }).click();
+    await visible(page.getByRole("heading", { name: "Affiliate", exact: true })).click();
+    await visible(page.getByRole("button", { name: "Sign & Assume Role" })).click();
     await expect(page.getByRole("heading", { name: "Affiliate Dashboard" })).toBeVisible();
 
     // 2. Affiliate navigates to Disputes & Mediation and submits a dispute ticket
@@ -72,8 +72,8 @@ test.describe("E2E Journey: Affiliate Dispute Resolution & Mediation (#490)", ()
     await visible(page.getByRole("button", { name: "Role Selector" })).click();
     await expect(page.getByRole("heading", { name: "Select Your Role" })).toBeVisible();
 
-    await page.getByRole("heading", { name: "Affiliate", exact: true }).click();
-    await page.getByRole("button", { name: "Sign & Assume Role" }).click();
+    await visible(page.getByRole("heading", { name: "Affiliate", exact: true })).click();
+    await visible(page.getByRole("button", { name: "Sign & Assume Role" })).click();
 
     // 8. Verify dispute status updates to RESOLVED on Affiliate dashboard
     const isDisputesHub = await page

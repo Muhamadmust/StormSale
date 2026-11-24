@@ -813,10 +813,11 @@ export class RpcFallbackManager {
    */
   public subscribe(
     listener: (event: {
-      type: "failover" | "health_check" | "active_changed";
+      type: "failover" | "health_check" | "active_changed" | "alert_banner" | "primary_restored";
       active: RpcEndpointStatus;
       endpoints: RpcEndpointStatus[];
       eventDetails?: RpcFailoverEvent;
+      message?: string;
     }) => void,
   ): () => void {
     this.listeners.add(listener);
@@ -826,10 +827,11 @@ export class RpcFallbackManager {
   }
 
   private notifyListeners(event: {
-    type: "failover" | "health_check" | "active_changed";
+    type: "failover" | "health_check" | "active_changed" | "alert_banner" | "primary_restored";
     active: RpcEndpointStatus;
     endpoints: RpcEndpointStatus[];
     eventDetails?: RpcFailoverEvent;
+    message?: string;
   }): void {
     this.listeners.forEach((listener) => {
       try {

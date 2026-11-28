@@ -451,7 +451,9 @@ describe("UI management components", () => {
 
     fireEvent.click(screen.getAllByRole("button", { name: "Verify wallet network" })[0]);
     await waitFor(() => expect(mockVerifyFreighterNetwork).toHaveBeenCalled());
-    expect(screen.getByRole("status").textContent).toContain("Wallet is on PUBLIC");
+    expect(
+      screen.getAllByRole("status").some((el) => el.textContent?.includes("Wallet is on PUBLIC")),
+    ).toBe(true);
     expect(screen.getByRole("button", { name: /Multi-Sig \(2\)/ })).toBeTruthy();
 
     fireEvent.click(screen.getByRole("button", { name: "Toggle Menu" }));

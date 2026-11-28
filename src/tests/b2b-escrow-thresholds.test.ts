@@ -235,7 +235,9 @@ describe("[B2B Enterprise] Escrow Auto-Replenishment Thresholds & Pre-Authorizat
       expect(
         (screen.getByRole("progressbar") as HTMLElement).getAttribute("aria-valuenow"),
       ).toBe("12");
-      expect(screen.getByText(/Trigger threshold: 20%/)).toBeTruthy();
+      expect(
+        screen.getAllByText((_, el) => Boolean(el?.textContent?.includes("Trigger threshold: 20%"))).length,
+      ).toBeGreaterThan(0);
 
       fireEvent.click(screen.getByRole("button", { name: "1-Click Refill" }));
       expect(onQuickRefill).toHaveBeenCalledOnce();
